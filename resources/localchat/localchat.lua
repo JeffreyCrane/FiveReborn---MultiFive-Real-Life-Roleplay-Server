@@ -1,32 +1,32 @@
 chat_range=100
  
-addEventHandler("onPlayerJoin",getRootElement(),
+AddEventHandler("OnPlayerJoin",GetRootElement(),
 function ()
-bindKey(source,"y","down","chat","Local")
+KeyPressed(source,"y","down","chat","Local")
 end)
  
-addEventHandler("onResourceStart",getResourceRootElement(getThisResource()),
+AddEventHandler("OnResourceStart",getResourceRootElement(getThisResource()),
 function ()
-for index, player in pairs(getElementsByType("player")) do
-bindKey(player,"y","down","chat","Local")
+for index, player in pairs(GetElementsByType("player")) do
+keyPressed(player,"y","down","chat","Local")
   end
 end)
  
 function isPlayerInRangeOfPoint(player,x,y,z,range)
-   local px,py,pz=getElementPosition(player)
+   local px,py,pz=GetElementPosition(player)
    return ((x-px)^2+(y-py)^2+(z-pz)^2)^0.5<=range
 end
  
 function onChat(player,_,...)
-  local px,py,pz=getElementPosition(player)
+  local px,py,pz=GetElementPosition(player)
   local msg = table.concat({...}, " ")
-  local nick=getPlayerName(player)
-local r,g,b = getTeamColor(getPlayerTeam(player))
-  for _,v in ipairs(getElementsByType("player")) do
+  local name = GetPlayerName(name)
+--local r,g,b = getTeamColor(getPlayerTeam(player))
+  for _,v in ipairs(GetElementsByType("player")) do
     if isPlayerInRangeOfPoint(v,px,py,pz,chat_range) then
-      outputChatBox("(Local) "..nick..": "..msg,v,r,g,b,true)
+      sendMessage("(Local) "..nick..": "..msg,v,r,g,b,true)
     end
   end
 end
-addCommandHandler("Local",onChat)
+--addCommandHandler("Local",onChat)
  
