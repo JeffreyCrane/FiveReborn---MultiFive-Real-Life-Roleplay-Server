@@ -48,7 +48,6 @@ end
 function vehicleRepairStation.init()
 print ("=======================")
 print ("vehicleRepairStation " .. vehicleRepairStation.version .. " by Aaronlelit")
-print ("Visit my youtube channel at : https://www.youtube.com/aaronlelit")
 print ("=======================")
 
 -- Draw Blip
@@ -102,35 +101,29 @@ print ("=======================")
 end
 
 function vehicleRepairStation.tick()
-	local playerPed = PLAYER.PLAYER_PED_ID()
-	local player = PLAYER.GET_PLAYER_PED(playerPed) 
-	local location = ENTITY.GET_ENTITY_COORDS(playerPed, nil)
+	local playerPed = GetPlayerName()
+	local player = GetPlayerPed(playerPed) 
+	local location = GetPlayerPosition(playerPed, nil)
 	
 	if ( vehicleRepairStation.playerIsAtStation(location) ) then
-		vehicleRepairStation.drawText("Press [E] or [PAD-RIGHT] for fix your vehicle !", 0.5, 0.5, 0.75)
-		if ( get_key_pressed(vehicleRepairStation.key.use) or CONTROLS.IS_CONTROL_PRESSED(2, 74) ) then
-			playerVehicle = PED.GET_VEHICLE_PED_IS_USING(playerPed)
+		vehicleRepairStation.drawText("Press [E] or [PAD-RIGHT] to fix your vehicle !", 0.5, 0.5, 0.75)
+		if ( IsKeyPressed(vehicleRepairStation.key.use) or ControlPressed(2, 74) ) then
+			playerVehicle = GetVehiclePedIsUsing(playerPed)
 			
-			if (PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("player_zero"))) then model = 0
-			elseif (PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("player_one"))) then model = 1                                         
-			elseif (PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("player_two"))) then model = 2 end
 			local statname = "SP"..model.."_TOTAL_CASH"
 			local hash = GAMEPLAY.GET_HASH_KEY(statname)
 			local bool, val = STATS.STAT_GET_INT(hash, 0, -1)
 			
-			finalPrice =  - (VEHICLE.GET_VEHICLE_ENGINE_HEALTH(playerVehicle) - 1000) + 150
+			finalPrice =  - (GetVehicleHealth(playerVehicle) - 1000) + 150
 			
 			if (val > finalPrice) then
 			STATS.STAT_SET_INT(hash, val - finalPrice, true)
 			
-			VEHICLE.SET_VEHICLE_UNDRIVEABLE(playerVehicle, true)
-			CAM.DO_SCREEN_FADE_OUT(2500)
+			SetVehicleUndriveable(playerVehicle, true)
 			wait(2500)
-			CAM.DO_SCREEN_FADE_IN(2500)
-			AUDIO.PLAY_MISSION_COMPLETE_AUDIO("MICHAEL_BIG_01")
 			vehicleRepairStation.notify("Your vehicle has been repaired !")
-			VEHICLE.SET_VEHICLE_FIXED(playerVehicle)
-			VEHICLE.SET_VEHICLE_UNDRIVEABLE(playerVehicle, false)
+			SetVehicleFixed(playerVehicle)
+			SetVehicleUndriveable(playerVehicle, false)
 			wait(2500)
 			else
 				vehicleRepairStation.notify("You do not have enough money to repair your vehicle !")
