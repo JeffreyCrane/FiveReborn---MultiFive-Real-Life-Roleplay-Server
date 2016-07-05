@@ -1,6 +1,6 @@
-function wanted()
-  getPlayerWantedLevel(playerGUID, wantedLevel)
+function wanted(GetWantedLevel, thePlayer, SetWantedLevel)
+  GetWantedLevel(thePlayer, wantedLevel)
   if Player(hasKilled)
-  setPlayerWantedLevel(onClientKill, wantedLevel)
-else playerWantedLevel = false
+  SetWantedLevel(onClientKill, wantedLevel)
+else WantedLevel = false
 end
