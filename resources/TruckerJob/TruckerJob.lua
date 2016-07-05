@@ -1,7 +1,3 @@
-----------------------------------------------------
--- Trucking Job By DGB ( Naimleboss ) Version 1.5 --
-----------------------------------------------------
-
 -- Variable localisation
 local TruckingCompagny = {{338, 345, 36}}
 local TruckingTrainer = {{602.9446, 275.0546, 104.37}}
@@ -74,7 +70,7 @@ GUI.loaded = true
 		UI.SET_BLIP_AS_SHORT_RANGE(blip[i], true)
 	end
 	
-GUI.addTitle("Trucking Job (by DGB)",0.425, 0.19, 0.45, 0.07)
+GUI.addTitle("Trucking Job",0.425, 0.19, 0.45, 0.07)
 GUI.addDescription("Help:",0.575, 0.375, 0.15, 0.30)	
 
 GUI.addButtonMenu1("RON Tanker trailer", GUI.OptionMission1, 0.35, 0.25, 0.3, 0.05)
@@ -165,14 +161,10 @@ function GUI.spawntrainer()
 end
 
 function GUI.Money()
-local playerPed = PLAYER.PLAYER_PED_ID()
+local playerPed = PLAYER.GetPlayerName()
 
-		if (PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("player_zero"))) then
-			model = 0
-		elseif (PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("player_one"))) then                                
-			model = 1                                         
-		elseif (PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("player_two"))) then
-			model = 2
+		if (PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("s_m_m_trucker_01"))) then
+			model = 0x59511A6C
 		end
 	
 		local statname = "SP"..model.."_TOTAL_CASH"
