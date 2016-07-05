@@ -1,16 +1,6 @@
---[[**********************************
-*
-*	Multi Theft Auto - Admin Panel
-*
-*	admin_client.lua
-*
-*	Original File by lil_Toady
-*
-**************************************]]
-
 _DEBUG = false
 
-_version = '1.3.1'
+_version = '1.0'
 _root = getRootElement()
 _flags = {}
 _widgets = {}
@@ -56,8 +46,8 @@ function aAdminResourceStart ()
 		xmlUnloadFile ( node )
 	end
 	aLoadSettings ()
-	triggerServerEvent ( "aPermissions", getLocalPlayer() )
-	setTimer( function() triggerServerEvent ( "aPlayerVersion", getLocalPlayer(), getVersion() ) end, 2000, 1 )
+	RegisterServerEvent ( "aPermissions", getLocalPlayer() )
+	setTimer( function() RegisterServerEvent ( "aPlayerVersion", GetLocalPlayer(), GetVersion() ) end, 2000, 1 )
 	guiSetInputMode ( "no_binds_when_editing" )
 end
 
