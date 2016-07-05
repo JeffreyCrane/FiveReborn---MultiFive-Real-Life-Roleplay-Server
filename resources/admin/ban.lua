@@ -12,7 +12,7 @@ function banPlayerCommand ( theClient, commandName, bannedName, reason )
 		showNotification ( "ban: " .. bannedName .. " successfully banned", theClient )
  
 	else
-		showNotification ( "ban: You don't have enough permissions", theClient )
+		showNotification ( "ban: You are not an administrator", theClient )
 	end
  
 end
