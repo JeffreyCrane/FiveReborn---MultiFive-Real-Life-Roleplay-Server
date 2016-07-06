@@ -2,21 +2,22 @@
 -- Example with the player
 function banPlayerCommand ( theClient, commandName, bannedName, reason )
  
+ 	command == ( "/ban "..PlayerName.. ..reason.., theClient )
 	-- Give the player a nice error if he doesn't have rights
 	if ( hasObjectPermissionTo ( theClient, "function.banPlayer" ) ) then
 		--Get player element from the name
-		local bannedPlayer = getPlayerFromName ( bannedName )
+		local bannedPlayer = GetPlayerName ( bannedName )
  
 		--Ban the player
 		banPlayer ( bannedPlayer, theClient, reason )
-		showNotification ( "ban: " .. bannedName .. " successfully banned", theClient )
+		print ( "ban: " .. bannedName .. " successfully banned", theClient )
  
 	else
-		showNotification ( "ban: You are not an administrator", theClient )
+		print ( "ban: You are not an administrator", theClient )
 	end
  
 end
-addEventHandler ( "ban", banPlayerCommand )
+AddEventHandler ( "ban", banPlayerCommand )
  
 -- Example function with the root element. Here you would pass a player element to the function.
 function banCheater(theCheater)
