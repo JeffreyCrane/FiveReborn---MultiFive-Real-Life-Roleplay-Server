@@ -1,6 +1,7 @@
-function checkWantedLevel(thePlayer, playerName, wantedLevel)
-	TriggerClientEvent(thePlayer, checkWantedLevel)
-	GetWantedLevel(thePlayer, wantedLevel)
+function checkWantedLevel(thePlayer, playerName, WantedLevel)
+	TriggerClientEvent(thePlayer, commandEntered, checkWantedLevel)
+	if commandEntered == "/wanted "..playerName) then
+	GetWantedLevel(thePlayer, WantedLevel)
 	if thePlayer(hasWantedLevel)
 	then print( ..name.. "has" ..WantedLevel)
 	else cancelEvent()
