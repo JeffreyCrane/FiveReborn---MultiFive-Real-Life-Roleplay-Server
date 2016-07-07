@@ -1,4 +1,5 @@
-chat_range=100
+local chatRange(100)
+command = ("/local", "/loc")
  
 AddEventHandler("OnPlayerJoin",GetRootElement(),
 function ()
@@ -8,7 +9,8 @@ end)
 AddEventHandler("OnResourceStart",getResourceRootElement(getThisResource()),
 function ()
 for index, player in pairs(GetElementsByType("player")) do
-keyPressed(player,"y","down","chat","Local")
+IsKeyPressed(player,"y","down","chat","Local") or
+commandEntered(command)
   end
 end)
  
@@ -19,14 +21,12 @@ end
  
 function onChat(player,_,...)
   local px,py,pz=GetElementPosition(player)
-  local msg = table.concat({...}, " ")
+  local message = table.concat({...}, " ")
   local name = GetPlayerName(name)
 --local r,g,b = getTeamColor(getPlayerTeam(player))
-  for _,v in ipairs(GetElementsByType("player")) do
-    if isPlayerInRangeOfPoint(v,px,py,pz,chat_range) then
-      sendMessage("(Local) "..nick..": "..msg,v,r,g,b,true)
+  for _,v in ipairs(GetElementType("player")) do
+    if isPlayerInRangeOfPoint(v,px,py,pz,chatRange) then
+      print("(Local) "..nick..": "..msg,v,r,g,b,true)
     end
   end
 end
---addCommandHandler("Local",onChat)
- 
