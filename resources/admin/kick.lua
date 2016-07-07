@@ -1,13 +1,20 @@
-function kickPlayer (theClient, commandName, kickedName, reason)
-  if ( hasObjectPermissionTo ( theClient, "function.kickPlayer" ) ) then
+function kickPlayer (player, command, kickedName, reason)
+	command ("kick", player, reason)
+  if command then
+  if ( hasObjectPermissionTo ( player, "function.kickPlayer" ) ) then
 		--Get player element from the name
 		local kickedPlayer = GetPlayerName ( kickedName )
 		
-		kickPlayer ( kickedPlayer, theClient, reason )
-	  	showNotification ( "Kick:" .. kickedName .. " has been kicked " ..Reason.. )
+		kickPlayer ( kickedPlayer, player, reason )
+	  	print ( "Kick:" .. kickedName .. " has been kicked for " ..Reason.. )
 	  else
-	  	showNotification ( "You do not have permission to kick players" )
+	  	print ( "You do not have permission to kick players" )
 	  end
 	end
 end
 AddEventHandler ( "kick", kickPlayer )
+
+
+function NetworkSessionKickPlayer(player)
+	RegisterServerEvent ("function.kickPlayer")
+
