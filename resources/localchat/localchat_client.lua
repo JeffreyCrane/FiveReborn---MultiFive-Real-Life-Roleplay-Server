@@ -3,11 +3,12 @@ local chatInputActivating = false
 
 RegisterNetEvent('chatMessage')
 
-AddEventHandler('chatMessage', function(name, color, message)
+AddEventHandler('chatMessage', function(name, color, message, range)
     SendNUIMessage({
         name = name,
         color = color,
-        message = message
+        message = message,
+        range = range
     })
 end)
 
@@ -22,7 +23,7 @@ RegisterNUICallback('chatResult', function(data, cb)
         --local r, g, b = GetPlayerRgbColour(id, _i, _i, _i)
         local r, g, b = 0, 0x99, 255
 
-        TriggerServerEvent('chatMessageEntered', GetPlayerName(id), { r, g, b }, data.message)
+        TriggerServerEvent('chatMessageEntered', GetPlayerName(id), { r, g, b }, data.message, range)
     end
 
     cb('ok')
@@ -35,7 +36,7 @@ Citizen.CreateThread(function()
         Wait(0)
 
         if not chatInputActive then
-            if IsControlPressed(0, 245) --[[ INPUT_MP_TEXT_CHAT_ALL ]] then
+            if IsControlPressed(0, 245) --[[ INPUT_MP_TEXT_CHAT_LOCAL ]] then
                 chatInputActive = true
                 chatInputActivating = true
 
