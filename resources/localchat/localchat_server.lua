@@ -1,18 +1,20 @@
 RegisterServerEvent('chatCommandEntered')
 RegisterServerEvent('chatMessageEntered')
 
-AddEventHandler('chatMessageEntered', function(name, color, message)
+local range(50)
+
+AddEventHandler('chatMessageEntered', function(name, color, message, range)
     if not name or not color or not message or #color ~= 3 then
         return
     end
 
-    TriggerEvent('chatMessage', source, name, message)
+    TriggerEvent('chatMessage', source, name, message, range)
 
     if not WasEventCanceled() then
-        TriggerClientEvent('chatMessage', -1, name, color, message)
+        TriggerClientEvent('chatMessage', -1, name, color, message, range)
     end
 
-    print(name .. ': ' .. message)
+    print(name .. '[LOCAL]: ' .. message)
 end)
 
 -- player join messages
@@ -24,9 +26,9 @@ AddEventHandler('playerDropped', function(reason)
     TriggerClientEvent('chatMessage', -1, '', { 0, 0, 0 }, '^2* ' .. GetPlayerName(source) ..' left (' .. reason .. ')')
 end)
 
--- say command handler
+-- local command handler
 AddEventHandler('rconCommand', function(commandName, args)
-    if commandName == "say" then
+    if commandName == "local" then
         local msg = table.concat(args, ' ')
 
         TriggerClientEvent('chatMessage', -1, 'console', { 0, 0x99, 255 }, msg)
