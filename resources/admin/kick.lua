@@ -1,6 +1,9 @@
+--Kick Script by Cody196--
 
+local DropPlayer = (source, "You got kicked")
+local playerName = GetPlayerName(source)
 
-
+RegisterServerEvent(playerName, command, DropPlayer)
 
 
 --function dropPlayer (player, command, name, reason)
