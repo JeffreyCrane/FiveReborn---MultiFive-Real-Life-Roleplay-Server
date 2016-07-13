@@ -1,14 +1,14 @@
 local ChatMessageEntered (console, message)
 
-message == "No Deathmatching"
-message == "No Teleproting"
-message == "Need help? Ask an admin or the owner Cody196 / cawhe"
+print ("AD: No Deathmatching")
+print ("AD: No Teleporting")
+print ("AD: Need help? Ask an admin or the owner Cody196 / cawhe")
 
 
-function sendMessage (chatBox, message,  Global) 
+function sendMessage (message,  all) 
   RegisterServerEvent(ChatMessageEntered, message)
     wait(500)
-  if wait hasReached then repeat
-    sendMessage(Message, math.random)
+    if wait then
+    repeat sendMessage and random
   else cancelEvent()
 end
