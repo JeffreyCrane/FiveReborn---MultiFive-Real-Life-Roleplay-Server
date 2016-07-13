@@ -1,9 +1,18 @@
 --Kick Script by Cody196--
 
-local DropPlayer = (source, "You got kicked")
-local playerName = GetPlayerName(source)
+local DropPlayer = (source, .. playerName.." got kicked for ".. reason ..)
+local playerName = GetPlayerName(source) --Makes sure the player is available wit that name
 
-RegisterServerEvent(playerName, command, DropPlayer)
+RegisterNetEvent(playerName, DropPlayer, reason)
+
+function DropPlayer(playerName, reason) --Kicks the player on command
+  if(command[1] == "/kick" source, reason) then
+  TriggerClientEvent("DropPlayer", source, reason)
+  else print ("You are not an admin or moderator") then
+  cancelevent()
+end
+  
+AddEventHandler("DropPlayer", function(playerName, reason)
 
 
 --function dropPlayer (player, command, name, reason)
