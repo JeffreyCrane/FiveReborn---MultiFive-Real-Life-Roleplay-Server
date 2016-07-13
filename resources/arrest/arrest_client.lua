@@ -1,17 +1,17 @@
-function checkWantedLevel(thePlayer, playerName, WantedLevel)
-	TriggerClientEvent(thePlayer, commandEntered, checkWantedLevel)
-	if commandEntered == "/wanted "..playerName) then
-	GetWantedLevel(thePlayer, WantedLevel)
-	if thePlayer(hasWantedLevel)
-	then print( ..name.. "has" ..WantedLevel)
-	else cancelEvent()
-end
+--function checkWantedLevel(name, WantedLevel)
+--	TriggerClientEvent(name, command, CheckPlayerWantedLevel)
+--	if commandEntered == "/wanted "..playerName) then
+--	GetPlayerWantedLevel(WantedLevel)
+--	if GetPlayerWantedLevel then
+--	print( ..name.. "has" ..WantedLevel)
+--	else cancelEvent()
+--end
 
-function tazed (thePlayer, weapon)
-	weapon = "stun_gun"
-	if tazed then
-	FreezePlayer(thePlayer, GetPosition)
-	local position = (thePlayer):GetPosition(x, y, z)
+--function tazed (thePlayer, weapon)
+--	weapon = "stun_gun"
+--	if weapon then
+--	FreezePlayer(thePlayer, GetPosition)
+--	local position = (thePlayer):GetPosition(x, y, z)
 
 function arrest(commandEntered, thePlayer)
 	commandEntered("/arrest" ..PlayerName)
