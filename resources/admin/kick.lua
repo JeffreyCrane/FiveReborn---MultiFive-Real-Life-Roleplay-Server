@@ -1,5 +1,5 @@
 function TempBanPlayer (player, command, name, reason)
-	command ("kick", player, reason)
+	command ("/kick", player, reason)
   if command then
   if ( hasObjectPermissionTo ( player, "function.TempBanPlayer" ) ) then
 		--Get player element from the name
