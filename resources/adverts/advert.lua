@@ -9,6 +9,6 @@ function sendMessage (message,  all)
   RegisterServerEvent(ChatMessageEntered, message)
     wait(500)
     if wait then
-    repeat sendMessage and random
+    repeat sendMessage and random.print
   else cancelEvent()
 end
