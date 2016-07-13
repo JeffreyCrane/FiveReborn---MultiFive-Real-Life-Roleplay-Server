@@ -7,7 +7,7 @@ local ChatMessageEntered (console, message)
 -- the messages, to add more just type print ("the message") on the next line, leave two spaces
 print ("AD: No Deathmatching")
 print ("AD: No Teleporting")
-print ("AD: Need help? Ask an admin or the owner Cody196 / cawhe")
+print ("AD: Need help? Ask an admin or the owner Cody196")
 
 
 -- sends the message to chat
