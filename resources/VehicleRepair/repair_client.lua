@@ -7,6 +7,8 @@ AddEventHandler('SetVehicleFixed', function(message)
         if playerPed and playerPed ~= -1 then -- Checks if the player exists
         end
         local car = SetVehicleFixed(carid, playerCoords, 0.0, true, false)
+        elseif IsPedOnFoot(GetPlayerPed(-1)) then
+        print ("You are not in a vehicle")
 
             TriggerEvent('chatMessage', 'SYSTEM', {0, 255, 0}, "Vehicle fixed.")
         end
