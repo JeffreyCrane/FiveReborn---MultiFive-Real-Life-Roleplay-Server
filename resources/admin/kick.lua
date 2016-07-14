@@ -7,6 +7,7 @@ RegisterNetEvent(playerName, DropPlayer, reason)
 
 function DropPlayer(playerName, reason) --Kicks the player on command
   if(command[1] == "/kick" source, reason) then
+  if playerIsAdmin or hasPermissionTo then
   TriggerClientEvent("DropPlayer", source, reason)
   else print ("You are not an admin or moderator") then
   cancelevent()
