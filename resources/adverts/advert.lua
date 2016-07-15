@@ -2,7 +2,7 @@
 
 RegisterServerEvent (onResourceStart, chatMessage)
 
-local ChatMessageEntered (console, message)
+local chatMessageEntered (console, message)
 
 -- the messages, to add more just type print ("the message") on the next line, leave two spaces
 print ("AD: No Deathmatching")
