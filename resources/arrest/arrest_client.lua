@@ -7,18 +7,26 @@ function checkWantedLevel(name, WantedLevel)
 	else cancelEvent()
 end
 
---function tazed (thePlayer, weapon)
---	weapon = "stun_gun"
---	if weapon then
---	FreezePlayer(thePlayer, GetPosition)
---	local position = (thePlayer):GetPosition(x, y, z)
+function tazed (player, weapon)
+	weapon = "stun_gun"
+	if IsHitBy(weapon) then
+	local player = GetPlayerPed(-1)
+		FreezeEntityPosition(player, true) then
+		SetPedToRagdollWithFall(player, PlayerPed)
+	if IsPedRagdoll(player)
 
-function arrest(commandEntered, thePlayer)
-	commandEntered("/arrest" ..PlayerName)
-		if IsBeingArrested = true then
-			PlayAnim("random@arrests@busted")
-		elseif IS_PED_CUFFED = true then
-			PlayAnim("get_up@cuffed")
-			ClearWantedLevel(thePlayer)
-			addEventHandler(arrest, thePlayer)
+
+function arrest(commandEntered, player)
+	TriggerClientEvent(arrest, command, player)
+	if commandEntered("/arrest" ..PlayerName) then
+		local playerName = GetPlayerName(source)
+		local arrestPed = TaskArrestPed(player, target)
+			if IsPedBeingArrested(player) = true then
+			PlayEntityAnim("random@arrests@busted")
+		elseif  IsPedCuffed = true then
+			PlayEntityAnim("get_up@cuffed")
+		else cancelEvent()
+	end
 end
+addEventHandler(arrest, thePlayer)
+
