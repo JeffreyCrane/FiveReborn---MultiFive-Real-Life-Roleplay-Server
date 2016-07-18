@@ -13,7 +13,8 @@ function tazed (player, weapon)
 	local player = GetPlayerPed(-1)
 		FreezeEntityPosition(player, true) then
 		SetPedToRagdollWithFall(player, PlayerPed)
-	if IsPedRagdoll(player)
+	if IsPedRagdoll(GetPlayerPed(-1))
+	
 
 
 function arrest(commandEntered, player)
