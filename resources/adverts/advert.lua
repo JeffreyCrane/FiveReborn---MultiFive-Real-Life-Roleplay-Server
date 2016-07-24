@@ -1,20 +1,15 @@
 --Advertisements by Cody196--
 
-RegisterServerEvent (onResourceStart, chatMessage)
+RegisterServerEvent (onResourceStart, advert)
 
-local ChatMessageEntered (console, message)
+-- This script is only working untill there is a getTickCount() function / event available for FiveM!
+-- Yet in th meantime this is the sourcecode, "print" will only execute in the server console!
+-- Thus an unfinished script yet!
+-- GalaxyNL
 
--- the messages, to add more just type print ("the message") on the next line, leave two spaces
-
-
--- sends the message to chat
-function chatMessage (message,  all) 
-  RegisterServerEvent(ChatMessageEntered, message)
-  print ("AD: No Deathmatching")
-  print ("AD: No Teleporting")
-  print ("AD: Need help? Ask an admin or the owner Cody196")
-    wait(120000)   -- wait time in milliseconds
-    if wait then
-    repeat chatMessage    -- repeats from beginning over and over in a loop
-  else cancelEvent()    -- cancels event only if there is an error or mishap
+function advert () 
+  TriggerEvent('chatMessage', 'AD:', {255, 0, 0}, "No Deathmatching")
+  TriggerEvent('chatMessage', 'AD:', {255, 0, 0}, "No Teleporting")
+  TriggerEvent('chatMessage', 'AD:', {255, 0, 0}, "Ask an admin for any assistance!")
+  
 end
