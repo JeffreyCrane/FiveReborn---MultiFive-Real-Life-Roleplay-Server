@@ -2,7 +2,8 @@
 
 function RollDownWindow(vehicle, windowIndex)
         AddEventHandler('chatCommandEntered', function(fullcommand)
-           if(command[1] == "/rolldown") then
-           TriggerClientEvent("RollDownWindow", vehicle, command[2]) then
+                if(command[1] == "/rolldown") then
+                TriggerClientEvent("RollDownWindow", vehicle, command[2]) then
         print(.. playerName .. "Rolls down his window.")
+        else cancelEvent()
 end
