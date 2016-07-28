@@ -1,4 +1,6 @@
-AddEventHandler('chatCommandEntered', function(fullcommand, msg)
+AddEventHandler('chatCommandEntered', function(fullcommand)
+RegisterServerEvent('chatMessage')
 
-elseif(command[1] == "/me") then
-    TriggerClientEvent("chatMessage", source, command[2]) -- Triggers client event.
+if (command[1] == '/me') then
+TriggerClientEvent('chatMessage', -1, GetPlayerName(source), { r, g, b }, command[2])
+end
