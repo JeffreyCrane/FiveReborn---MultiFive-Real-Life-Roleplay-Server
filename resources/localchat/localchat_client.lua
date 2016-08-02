@@ -22,9 +22,14 @@ RegisterNUICallback('chatResult', function(data, cb)
 
         --local r, g, b = GetPlayerRgbColour(id, _i, _i, _i)
         local r, g, b = 0, 0x99, 255
+        
+        local range = Vdist
+        
+        local player = GetPlayerPed(-1)
+        local playerLoc = GetEntityCoords(player, true)
+            Vdist(100, 100, 300, playerLoc['x'], playerLoc['y'], playerLoc['z'])
 
         TriggerServerEvent('chatMessageEntered', GetPlayerName(id), { r, g, b }, data.message, range)
-    end
 
     cb('ok')
 end)
