@@ -8,7 +8,7 @@ AddEventHandler('chatMessage', function(name, color, message, range)
         name = name,
         color = color,
         message = message,
-        range = range
+        range = range,
     })
 end)
 
@@ -23,7 +23,7 @@ RegisterNUICallback('chatResult', function(data, cb)
         --local r, g, b = GetPlayerRgbColour(id, _i, _i, _i)
         local r, g, b = 0, 0x99, 255
         
-        local range = Vdist
+        local range = Vdist()
         
         local player = GetPlayerPed(-1)
         local playerLoc = GetEntityCoords(player, true)
