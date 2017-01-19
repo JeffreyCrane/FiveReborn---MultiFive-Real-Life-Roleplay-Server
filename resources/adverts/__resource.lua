@@ -1,1 +1,1 @@
-client_script 'advert.lua'
+server_script 'advert.lua'
