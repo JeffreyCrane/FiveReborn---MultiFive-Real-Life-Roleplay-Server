@@ -9,7 +9,9 @@ RegisterServerEvent (onResourceStart, advert)
 
 function advert () 
   TriggerEvent('chatMessage', 'AD:', {255, 0, 0}, "No Deathmatching")
+  wait(90)
   TriggerEvent('chatMessage', 'AD:', {255, 0, 0}, "No Teleporting")
+  wait(90)
   TriggerEvent('chatMessage', 'AD:', {255, 0, 0}, "Ask an admin for any assistance!")
-  
+  return
 end
