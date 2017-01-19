@@ -1,4 +1,5 @@
 RegisterNetEvent("RollDownWindow")
 AddEventHandler("RollDownWindow", function(toggle)
-  RollDownWindow(GetVehiclePedIsIn(GetPlayerPed(-1)), 1)
+function RollDownWindow(commandEntered, vehicle, playerPed)
+    RollDownWindow(GetVehiclePedIsIn(GetPlayerPed(-1)), 1)
 end)
